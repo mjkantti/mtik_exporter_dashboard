@@ -64,7 +64,7 @@
       "collapsed": false,
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "gridPos": {
         "h": 1,
@@ -78,7 +78,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "refId": "A"
         }
@@ -88,8 +88,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -154,10 +155,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_system_identity_info{routerboard_name=\"$node\"}  ",
+          "expr": "sum by (name) (mtik_exporter_system_identity_info{routerboard_name=\"$node\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -171,8 +172,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -236,10 +238,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_system_uptime_total{routerboard_name=\"$node\"}",
+          "expr": "sum by (board_name) (mtik_exporter_system_uptime_total{routerboard_name=\"$node\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "{{board_name}}",
@@ -251,8 +253,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -352,11 +355,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_installed_packages_info{routerboard_name=\"$node\"}",
+          "expr": "sum by (name, disabled) (mtik_exporter_installed_packages_info{routerboard_name=\"$node\"})",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -406,7 +409,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -480,7 +483,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "(1 - mtik_exporter_system_free_memory{routerboard_name=\"$node\"} / mtik_exporter_system_total_memory{routerboard_name=\"$node\"})*100",
@@ -509,7 +512,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_cpu_load{routerboard_name=\"$node\"}",
@@ -521,7 +524,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "(1 - mtik_exporter_system_free_hdd_space{routerboard_name=\"$node\"} / mtik_exporter_system_total_hdd_space{routerboard_name=\"$node\"})*100",
@@ -536,7 +539,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -629,7 +632,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_cpu_load{routerboard_name=\"$node\"}",
@@ -661,7 +664,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -822,7 +825,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_cpu_frequency{routerboard_name=\"$node\"}*1000000",
@@ -854,7 +857,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -903,7 +906,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -921,7 +924,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -985,7 +988,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_routerboard_temperature{routerboard_name=\"$node\"}  ",
@@ -997,7 +1000,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_cpu_temperature{routerboard_name=\"$node\"}  ",
@@ -1012,8 +1015,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1118,10 +1122,10 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_system_info{routerboard_name=\"$node\"}",
+          "expr": "sum by (current_version) (mtik_exporter_system_info{routerboard_name=\"$node\"})",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -1147,29 +1151,30 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_system_info{routerboard_name=\"$node\"} * on(channel) group_left(latest_version) mtik_exporter_system_latest_version_info",
+          "exemplar": false,
+          "expr": "sum by (latest_version) (mtik_exporter_system_info{routerboard_name=\"$node\"} * on(channel) group_left(latest_version) mtik_exporter_system_latest_version_info)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "legendFormat": "Latest: {{latest_version}}",
-          "range": true,
+          "range": false,
           "refId": "B"
         },
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
           "expr": "(mtik_exporter_system_info{routerboard_name=\"$node\"} * on(channel) group_left(latest_version) mtik_exporter_system_latest_version_built) - on(routerboard_name) mtik_exporter_installed_packages_build_time{routerboard_name=\"$node\", name=\"routeros\"}",
           "format": "time_series",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "legendFormat": "Newest",
-          "range": true,
+          "range": false,
           "refId": "C"
         }
       ],
@@ -1178,8 +1183,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1245,7 +1251,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_uptime_total{routerboard_name=\"$node\"}",
@@ -1277,8 +1283,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1386,10 +1393,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_active_users_last_login{routerboard_name=\"$node\"} * 1000",
+          "expr": "sum by (address, name, via) (mtik_exporter_active_users_last_login{routerboard_name=\"$node\"} * 1000)",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1403,14 +1410,7 @@
           "id": "organize",
           "options": {
             "excludeByName": {
-              "Time": true,
-              "__name__": true,
-              "exported_group": true,
-              "group": true,
-              "instance": true,
-              "job": true,
-              "routerboard_address": true,
-              "routerboard_name": true
+              "Time": true
             },
             "includeByName": {},
             "indexByName": {},
@@ -1425,7 +1425,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1596,7 +1596,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_total_hdd_space{routerboard_name=\"$node\"} - mtik_exporter_system_free_hdd_space{routerboard_name=\"$node\"}",
@@ -1627,7 +1627,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_total_hdd_space{routerboard_name=\"$node\"}",
@@ -1655,7 +1655,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_hdd_bad_blocks_percent{routerboard_name=\"$node\"}",
@@ -1671,7 +1671,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1832,7 +1832,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_hdd_write_sector_count_total{routerboard_name=\"$node\"} * ((vector(2048) and on() (mtik_exporter_system_total_hdd_space{routerboard_name=\"$node\"} > 268435456)) or on() vector(512)) / mtik_exporter_system_total_hdd_space{routerboard_name=\"$node\"}",
@@ -1864,7 +1864,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -1921,7 +1921,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_system_routerboard_voltage{routerboard_name=\"$node\"}",
@@ -1953,8 +1953,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -2018,10 +2019,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_public_ip_address_info{routerboard_name=\"$node\"}",
+          "expr": "sum by (routerboard_address) (mtik_exporter_public_ip_address_info{routerboard_name=\"$node\"})",
           "instant": false,
           "interval": "",
           "legendFormat": "{{routerboard_address}}",
@@ -2034,8 +2035,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -2100,43 +2102,46 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "mtik_exporter_public_ip_address_info{routerboard_name=\"$node\"}",
-          "instant": false,
+          "format": "time_series",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{public_address}}",
-          "range": true,
+          "range": false,
           "refId": "B"
         },
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "mtik_exporter_public_ip_address_info{routerboard_name=\"$node\", public_address_ipv6!=\"\"}",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{public_address_ipv6}}",
-          "range": true,
+          "range": false,
           "refId": "A"
         },
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
           "expr": "mtik_exporter_public_ip_address_info{routerboard_name=\"$node\"}",
           "format": "time_series",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "legendFormat": "{{dns_name}}",
-          "range": true,
+          "range": false,
           "refId": "C"
         }
       ],
@@ -2145,8 +2150,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2249,10 +2255,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_active_users_count{routerboard_name=\"$node\"}",
+          "expr": "sum by (address, name, via) (mtik_exporter_active_users_count{routerboard_name=\"$node\"})",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2289,7 +2295,7 @@
       "collapsed": false,
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "gridPos": {
         "h": 1,
@@ -2303,7 +2309,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "refId": "A"
         }
@@ -2313,8 +2319,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -2382,15 +2389,16 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "count(mtik_exporter_routes_info{routerboard_name=\"$node\", distance!=\"0\"}) + count((mtik_exporter_ipv6_routes_info{routerboard_name=\"$node\", distance!=\"0\"}) OR on() vector(0))",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{ type }}",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -2399,8 +2407,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2467,9 +2476,10 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "count(mtik_exporter_routes_info{routerboard_name=\"$node\", distance!=\"0\", dynamic=\"true\"})",
           "format": "time_series",
           "functions": [],
@@ -2480,7 +2490,7 @@
           "host": {
             "filter": "MikroTik Router"
           },
-          "instant": false,
+          "instant": true,
           "interval": "",
           "intervalFactor": 1,
           "item": {
@@ -2491,27 +2501,27 @@
           "options": {
             "showDisabledItems": false
           },
-          "range": true,
+          "range": false,
           "refId": "A"
         },
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
           "expr": "count(mtik_exporter_routes_info{routerboard_name=\"$node\", distance!=\"0\", dynamic=\"false\"})",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "legendFormat": "ipv4 - static",
-          "range": true,
+          "range": false,
           "refId": "B"
         },
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2525,15 +2535,15 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
           "expr": "count(mtik_exporter_ipv6_routes_info{routerboard_name=\"$node\", distance!=\"0\", dynamic=\"false\"})",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "legendFormat": "ipv6 - static",
-          "range": true,
+          "range": false,
           "refId": "D"
         }
       ],
@@ -2542,8 +2552,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -2614,15 +2625,16 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "sort_by_label(mtik_exporter_interface_full_duplex{routerboard_name=\"$node\"}, \"name\")",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{name}}",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -2632,7 +2644,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2754,7 +2766,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(mtik_exporter_interface_rx_error_total{routerboard_name=\"$node\"}[$__rate_interval])",
@@ -2783,7 +2795,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(mtik_exporter_interface_tx_error_total{routerboard_name=\"$node\"}[$__rate_interval])",
@@ -2802,7 +2814,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -2873,7 +2885,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "sort_by_label_numeric(mtik_exporter_interface_status{routerboard_name=\"$node\"}, \"name\")",
@@ -2889,8 +2901,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2945,11 +2958,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_interface_rate{routerboard_name=\"$node\"}",
+          "expr": "sum by (comment, name) (mtik_exporter_interface_rate{routerboard_name=\"$node\"})",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2991,7 +3004,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3125,7 +3138,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_poe_info{routerboard_name=\"$node\"}",
@@ -3182,8 +3195,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -3268,7 +3282,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -3284,7 +3298,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -3303,7 +3317,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -3419,7 +3433,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(mtik_exporter_firewall_mangle_bytes_total{routerboard_name=\"$node\", action=\"passthrough\", comment=\"IPv4 In\"}[$__rate_interval])*8",
@@ -3432,7 +3446,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(mtik_exporter_firewall_mangle_ipv6_bytes_total{routerboard_name=\"$node\", action=\"passthrough\", comment=\"IPv6 In\"}[$__rate_interval])*8",
@@ -3445,7 +3459,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "-rate(mtik_exporter_firewall_mangle_bytes_total{routerboard_name=\"$node\", action=\"passthrough\", comment=\"IPv4 Out\"}[$__rate_interval])*8",
@@ -3457,7 +3471,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "-rate(mtik_exporter_firewall_mangle_ipv6_bytes_total{routerboard_name=\"$node\", action=\"passthrough\", comment=\"IPv6 Out\"}[$__rate_interval])*8",
@@ -3473,7 +3487,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3558,7 +3572,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -3572,7 +3586,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -3630,7 +3644,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3716,7 +3730,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -3730,7 +3744,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -3770,7 +3784,7 @@
       "collapsed": false,
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "gridPos": {
         "h": 1,
@@ -3784,7 +3798,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "refId": "A"
         }
@@ -3795,7 +3809,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -3858,7 +3872,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "count by (host) (mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\", dynamic=\"true\"})",
@@ -3890,8 +3904,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3993,6 +4008,18 @@
                 "value": 360
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "mac_vendor"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 173
+              }
+            ]
           }
         ]
       },
@@ -4021,10 +4048,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "sort_by_label_numeric(\r\nlabel_replace(label_replace(label_replace(label_replace(mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\", active_address!=\"\"},\r\n\"ip-part1\", \"$1\", \"address\", \"([0-9]{1,3})\\\\.(.+)\"),\r\n\"ip-part2\", \"$2\", \"address\", \"([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.(.+)\"),\r\n\"ip-part3\", \"$3\", \"address\", \"([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.(.+)\"),\r\n\"ip-part4\", \"$4\", \"address\", \"([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\"),\r\n\"ip-part1\", \"ip-part2\", \"ip-part3\", \"ip-part4\")",
+          "expr": "sum by (host_name, comment, mac_address, mac_vendor, active_address, address, address_lists, status) (sort_by_label_numeric(\r\nlabel_replace(label_replace(label_replace(label_replace(mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\", active_address!=\"\"},\r\n\"ip-part1\", \"$1\", \"address\", \"([0-9]{1,3})\\\\.(.+)\"),\r\n\"ip-part2\", \"$2\", \"address\", \"([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.(.+)\"),\r\n\"ip-part3\", \"$3\", \"address\", \"([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.(.+)\"),\r\n\"ip-part4\", \"$4\", \"address\", \"([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\\\\.([0-9]{1,3})\"),\r\n\"ip-part1\", \"ip-part2\", \"ip-part3\", \"ip-part4\"))",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -4034,11 +4061,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_dhcp_lease_expiry{routerboard_name=\"$node\"}",
+          "expr": "sum by (mac_address) (mtik_exporter_dhcp_lease_expiry{routerboard_name=\"$node\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -4049,11 +4076,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_dhcp_lease_last_seen{routerboard_name=\"$node\"}",
+          "expr": "sum by (mac_address) (mtik_exporter_dhcp_lease_last_seen{routerboard_name=\"$node\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -4125,51 +4152,20 @@
             },
             "includeByName": {},
             "indexByName": {
-              "Time 1": 10,
-              "Time 2": 23,
-              "Time 3": 34,
-              "Value #A": 22,
-              "Value #B": 33,
-              "Value #C": 44,
-              "__name__ 1": 11,
-              "__name__ 2": 24,
-              "__name__ 3": 35,
+              "Time 1": 6,
+              "Time 2": 9,
+              "Time 3": 11,
+              "Value #A": 8,
+              "Value #B": 10,
+              "Value #C": 12,
               "active_address": 4,
               "address": 5,
-              "address_lists": 12,
-              "client_id 1": 13,
-              "client_id 2": 25,
-              "client_id 3": 36,
-              "comment 1": 1,
-              "comment 2": 26,
-              "comment 3": 37,
-              "display_name 1": 14,
-              "display_name 2": 27,
-              "display_name 3": 38,
-              "dynamic": 15,
-              "group 1": 16,
-              "group 2": 28,
-              "group 3": 39,
-              "host_name": 0,
-              "instance 1": 17,
-              "instance 2": 29,
-              "instance 3": 40,
-              "ip-part1": 6,
-              "ip-part2": 7,
-              "ip-part3": 8,
-              "ip-part4": 9,
-              "job 1": 18,
-              "job 2": 30,
-              "job 3": 41,
-              "mac_address": 3,
-              "routerboard_address 1": 19,
-              "routerboard_address 2": 31,
-              "routerboard_address 3": 42,
-              "routerboard_name 1": 20,
-              "routerboard_name 2": 32,
-              "routerboard_name 3": 43,
-              "server": 2,
-              "status": 21
+              "address_lists": 13,
+              "comment": 0,
+              "host_name": 1,
+              "mac_address": 2,
+              "mac_vendor": 3,
+              "status": 7
             },
             "renameByName": {
               "Value": "Expires After",
@@ -4187,7 +4183,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -4250,7 +4246,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "count by(server) (mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\", active_address!=\"\"})",
@@ -4283,7 +4279,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -4346,7 +4342,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "count(mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\", active_address!=\"\"})",
@@ -4380,7 +4376,7 @@
       "collapsed": true,
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "gridPos": {
         "h": 1,
@@ -4393,7 +4389,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "fieldConfig": {
             "defaults": {
@@ -4504,12 +4500,12 @@
               }
             ]
           },
-          "pluginVersion": "10.4.2",
+          "pluginVersion": "11.2.0",
           "targets": [
             {
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "(mtik_exporter_connection_stats{routerboard_name=\"JP-RB5009\"}) * on (src_address) group_right(src_address, dst_addresses) (label_replace(mtik_exporter_dhcp_lease_info{routerboard_name=\"JP-RB5009\"}, \"src_address\", \"$1\", \"address\", \"(.*)\")) or on (src_address, dst_addresses) mtik_exporter_connection_stats{routerboard_name=\"JP-RB5009\"}",
@@ -4581,7 +4577,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "fieldConfig": {
             "defaults": {
@@ -4679,7 +4675,7 @@
             {
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -4697,7 +4693,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -4712,6 +4708,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 30,
                 "gradientMode": "none",
@@ -4808,7 +4805,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_firewall_filter_bytes_total{routerboard_name=\"$node\", chain=\"input\"}[$__rate_interval])*8",
@@ -4841,7 +4838,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -4856,6 +4853,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 30,
                 "gradientMode": "none",
@@ -4952,7 +4950,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_firewall_filter_bytes_total{routerboard_name=\"$node\", chain=\"forward\"}[$__rate_interval])*8",
@@ -4987,7 +4985,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "refId": "A"
         }
@@ -5010,8 +5008,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -5072,11 +5071,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sort_by_label(mtik_exporter_arp_entry_info{routerboard_name=\"$node\", dhcp_lease_type!=\"static\"}, \"interface\")",
+          "expr": "sum by (interface, mac_address, address, dynamic, status) (sort_by_label(mtik_exporter_arp_entry_info{routerboard_name=\"$node\", dhcp_lease_type!=\"static\"}, \"interface\"))",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -5129,16 +5128,265 @@
       "type": "table"
     },
     {
+      "datasource": {
+        "default": true,
+        "type": "victoriametrics-datasource",
+        "uid": "${ds}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 87
+      },
+      "id": 464,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "interface"
+          }
+        ]
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-datasource",
+            "uid": "${ds}"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "sort_by_label(mtik_exporter_bridge_host_info{routerboard_name=\"$node\", dhcp_lease_type!=\"static\"}, \"interface\")",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "MAC Table",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "Value": true,
+              "__name__": true,
+              "bridge": true,
+              "dhcp_name": false,
+              "display_name": true,
+              "group": true,
+              "instance": true,
+              "interface": false,
+              "job": true,
+              "on_interface": true,
+              "routerboard_address": true,
+              "routerboard_name": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time": 6,
+              "Value": 13,
+              "address": 4,
+              "bridge": 0,
+              "comment": 5,
+              "group": 7,
+              "instance": 8,
+              "interface": 1,
+              "job": 9,
+              "mac_address": 2,
+              "on_interface": 3,
+              "routerboard_address": 10,
+              "routerboard_name": 11,
+              "vid": 12
+            },
+            "renameByName": {
+              "vid": "VLAN"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 94
+      },
+      "id": 477,
+      "panels": [],
+      "title": "Containers",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "victoriametrics-datasource",
+        "uid": "${ds}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 95
+      },
+      "id": 476,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-datasource",
+            "uid": "${ds}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (comment, os, arch, root_dir, status) (mtik_exporter_container_running{routerboard_name=\"$node\"})",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Containers",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "Value": false,
+              "__name__": true,
+              "group": true,
+              "instance": true,
+              "interface": true,
+              "job": true,
+              "name": true,
+              "routerboard_address": true,
+              "routerboard_name": true,
+              "status": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time": 0,
+              "Value": 15,
+              "__name__": 1,
+              "arch": 4,
+              "comment": 2,
+              "group": 6,
+              "instance": 7,
+              "interface": 8,
+              "job": 9,
+              "name": 10,
+              "os": 3,
+              "root_dir": 11,
+              "routerboard_address": 12,
+              "routerboard_name": 13,
+              "status": 14,
+              "tag": 5
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
       "collapsed": false,
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 87
+        "y": 101
       },
       "id": 90,
       "panels": [],
@@ -5146,7 +5394,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "refId": "A"
         }
@@ -5156,8 +5404,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -5223,6 +5472,13 @@
                 "value": {
                   "mode": "thresholds"
                 }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": true,
+                  "type": "color-background"
+                }
               }
             ]
           },
@@ -5244,7 +5500,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 88
+        "y": 102
       },
       "id": 88,
       "options": {
@@ -5265,10 +5521,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_netwatch_status{routerboard_name=\"$node\"}",
+          "expr": "sum by (name, host, type, status) (mtik_exporter_netwatch_status{routerboard_name=\"$node\"})",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -5278,11 +5534,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_netwatch_since{routerboard_name=\"$node\"} * 1000",
+          "expr": "sum by (name, host, type, status) (mtik_exporter_netwatch_since{routerboard_name=\"$node\"} * 1000)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -5307,6 +5563,8 @@
               "Time 1": true,
               "Time 2": true,
               "__name__": true,
+              "comment 1": true,
+              "comment 2": true,
               "group 1": true,
               "group 2": true,
               "instance 1": true,
@@ -5359,14 +5617,14 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 98
+        "y": 112
       },
       "id": 248,
       "panels": [
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "fieldConfig": {
             "defaults": {
@@ -5457,7 +5715,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 99
+            "y": 107
           },
           "id": 231,
           "maxPerRow": 2,
@@ -5482,7 +5740,7 @@
             {
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "disableTextWrap": false,
               "editorMode": "code",
@@ -5498,7 +5756,7 @@
             {
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_netwatch_icmp_rtt_max{routerboard_name=\"$node\", name=\"$netwatch_icmp_target\"}",
@@ -5511,7 +5769,7 @@
             {
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_netwatch_icmp_rtt_min{routerboard_name=\"$node\", name=\"$netwatch_icmp_target\"}",
@@ -5528,7 +5786,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -5611,7 +5869,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 147
+            "y": 155
           },
           "id": 230,
           "options": {
@@ -5635,7 +5893,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "sum_over_time(mtik_exporter_netwatch_icmp_loss_count{routerboard_name=\"$node\"}[$__rate_interval]) / sum_over_time(mtik_exporter_netwatch_icmp_sent_count{routerboard_name=\"$node\"}[$__rate_interval])",
@@ -5668,7 +5926,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -5729,7 +5987,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 155
+            "y": 163
           },
           "id": 87,
           "options": {
@@ -5750,7 +6008,7 @@
             {
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_netwatch_http_response_time{routerboard_name=\"$node\"} * mtik_exporter_netwatch_status{routerboard_name=\"$node\"}",
@@ -5763,7 +6021,7 @@
             {
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_tcp_connect_time{routerboard_name=\"$node\"} * mtik_exporter_netwatch_status{routerboard_name=\"$node\"}",
@@ -5785,13 +6043,13 @@
       "collapsed": false,
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 99
+        "y": 113
       },
       "id": 33,
       "panels": [],
@@ -5799,7 +6057,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "refId": "A"
         }
@@ -5809,8 +6067,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -5882,7 +6141,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 100
+        "y": 114
       },
       "id": 35,
       "interval": "1m",
@@ -5904,10 +6163,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_capsman_remote_caps_info{routerboard_name=\"$node\"}",
+          "expr": "sum by (identity, base_mac, version) (mtik_exporter_capsman_remote_caps_info{routerboard_name=\"$node\"})",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -5952,8 +6211,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -6025,7 +6285,7 @@
         "h": 6,
         "w": 18,
         "x": 6,
-        "y": 100
+        "y": 114
       },
       "id": 310,
       "interval": "1m",
@@ -6047,30 +6307,15 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_wifi_interfaces_info{routerboard_name=\"$node\"}",
+          "expr": "sum by (name, configuration_ssid, channel, mac_address, master, tx_power) (mtik_exporter_wifi_interfaces_info{routerboard_name=\"$node\"})",
           "format": "table",
           "instant": true,
           "interval": "",
           "legendFormat": "{{identity}}",
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "mtik_exporter_wifi_interfaces_monitor_info{routerboard_name=\"$node\"}",
-          "format": "table",
-          "hide": true,
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "B"
         }
       ],
       "title": "Wifi Interfaces",
@@ -6142,7 +6387,7 @@
       "datasource": {
         "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -6175,7 +6420,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 106
+        "y": 120
       },
       "id": 47,
       "options": {
@@ -6205,7 +6450,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_wifi_interface_authorized_peers{routerboard_name=\"$node\"} > 0",
@@ -6234,7 +6479,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "sum(mtik_exporter_wifi_interface_authorized_peers{routerboard_name=\"$node\"})",
@@ -6249,8 +6494,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -6335,7 +6581,7 @@
         "h": 11,
         "w": 18,
         "x": 6,
-        "y": 106
+        "y": 120
       },
       "id": 41,
       "options": {
@@ -6352,7 +6598,7 @@
         "sortBy": [
           {
             "desc": false,
-            "displayName": "rx_signal"
+            "displayName": "interface"
           }
         ]
       },
@@ -6361,10 +6607,10 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}",
+          "expr": "sum by (mac_address, interface, ssid, dhcp_address, dhcp_comment) (mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"})",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -6374,11 +6620,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_wifi_clients_signal_strength{routerboard_name=\"$node\"}",
+          "expr": "sum by (mac_address) (mtik_exporter_wifi_clients_signal_strength{routerboard_name=\"$node\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6389,11 +6635,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_wifi_clients_rx_rate{routerboard_name=\"$node\"}",
+          "expr": "sum by (mac_address) (mtik_exporter_wifi_clients_rx_rate{routerboard_name=\"$node\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6404,11 +6650,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_wifi_clients_tx_rate{routerboard_name=\"$node\"}",
+          "expr": "sum by (mac_address) (mtik_exporter_wifi_clients_tx_rate{routerboard_name=\"$node\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6419,11 +6665,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_wifi_clients_uptime{routerboard_name=\"$node\"}",
+          "expr": "sum by (mac_address) (mtik_exporter_wifi_clients_uptime{routerboard_name=\"$node\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -6507,55 +6753,20 @@
             "includeByName": {},
             "indexByName": {
               "Time 1": 2,
-              "Time 2": 12,
-              "Time 3": 21,
-              "Time 4": 30,
-              "Time 5": 40,
-              "Value #A": 11,
-              "Value #B": 20,
-              "Value #C": 29,
-              "Value #D": 38,
-              "Value #E": 39,
-              "__name__ 1": 3,
-              "__name__ 2": 13,
-              "__name__ 3": 22,
-              "__name__ 4": 31,
-              "__name__ 5": 41,
-              "comment": 48,
-              "display_name 1": 0,
-              "display_name 2": 14,
-              "display_name 3": 23,
-              "display_name 4": 32,
-              "display_name 5": 42,
-              "group 1": 4,
-              "group 2": 15,
-              "group 3": 24,
-              "group 4": 33,
-              "group 5": 43,
-              "host_name": 49,
-              "instance 1": 5,
-              "instance 2": 16,
-              "instance 3": 25,
-              "instance 4": 34,
-              "instance 5": 44,
-              "interface": 6,
-              "job 1": 7,
-              "job 2": 17,
-              "job 3": 26,
-              "job 4": 35,
-              "job 5": 45,
+              "Time 2": 6,
+              "Time 3": 8,
+              "Time 4": 10,
+              "Time 5": 13,
+              "Value #A": 5,
+              "Value #B": 7,
+              "Value #C": 9,
+              "Value #D": 11,
+              "Value #E": 12,
+              "dhcp_address": 14,
+              "dhcp_comment": 0,
+              "interface": 3,
               "mac_address": 1,
-              "routerboard_address 1": 8,
-              "routerboard_address 2": 18,
-              "routerboard_address 3": 27,
-              "routerboard_address 4": 36,
-              "routerboard_address 5": 46,
-              "routerboard_name 1": 9,
-              "routerboard_name 2": 19,
-              "routerboard_name 3": 28,
-              "routerboard_name 4": 37,
-              "routerboard_name 5": 47,
-              "ssid": 10
+              "ssid": 4
             },
             "renameByName": {
               "Value #B": "Signal Strength",
@@ -6571,7 +6782,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -6584,6 +6795,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
@@ -6605,7 +6817,7 @@
             "spanNulls": false,
             "stacking": {
               "group": "A",
-              "mode": "none"
+              "mode": "normal"
             },
             "thresholdsStyle": {
               "mode": "off"
@@ -6641,13 +6853,34 @@
           },
           "unit": "none"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsZero",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 11,
         "w": 6,
         "x": 0,
-        "y": 113
+        "y": 127
       },
       "id": 48,
       "interval": "1m",
@@ -6672,7 +6905,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_wifi_interface_authorized_peers{routerboard_name=\"$node\"}",
@@ -6705,8 +6938,9 @@
     },
     {
       "datasource": {
+        "default": false,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -6771,7 +7005,7 @@
         "h": 7,
         "w": 18,
         "x": 6,
-        "y": 117
+        "y": 131
       },
       "id": 49,
       "options": {
@@ -6797,7 +7031,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "mtik_exporter_wifi_clients_signal_strength{routerboard_name=\"$node\"}",
@@ -6816,7 +7050,7 @@
           "item": {
             "filter": "Incoming traffic on interface ether1-gateway"
           },
-          "legendFormat": "{{display_name}}",
+          "legendFormat": "{{mac_address}} | {{dhcp_comment}}",
           "mode": 0,
           "options": {
             "showDisabledItems": false
@@ -6829,8 +7063,9 @@
     },
     {
       "datasource": {
+        "default": false,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -6889,7 +7124,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 124
+        "y": 138
       },
       "id": 39,
       "interval": "10s",
@@ -6918,7 +7153,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(mtik_exporter_wifi_clients_rx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval])*8",
@@ -6937,7 +7172,7 @@
           "item": {
             "filter": "Incoming traffic on interface ether1-gateway"
           },
-          "legendFormat": "In | {{ display_name }}",
+          "legendFormat": "In | {{ mac_address }} | {{ dhcp_comment }}",
           "mode": 0,
           "options": {
             "showDisabledItems": false
@@ -6950,7 +7185,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "-rate(mtik_exporter_wifi_clients_tx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval])*8",
@@ -6968,7 +7203,7 @@
           "item": {
             "filter": "Outgoing traffic on interface ether1-gateway"
           },
-          "legendFormat": "Out | {{display_name}}",
+          "legendFormat": "Out | {{ mac_address }} | {{ dhcp_comment }}",
           "mode": 0,
           "options": {
             "showDisabledItems": false
@@ -6983,7 +7218,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7045,7 +7280,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 134
+        "y": 148
       },
       "id": 189,
       "interval": "10",
@@ -7068,7 +7303,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "sum by (interface,ssid)(rate(mtik_exporter_wifi_clients_rx_bytes_total{routerboard_name=\"$node\"} * on (mac_address) group_left(interface, ssid) mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}[$__rate_interval]))*8",
@@ -7080,7 +7315,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "-sum by (interface,ssid)(rate(mtik_exporter_wifi_clients_tx_bytes_total{routerboard_name=\"$node\"} * on (mac_address) group_left(interface, ssid) mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}[$__rate_interval]))*8",
@@ -7100,7 +7335,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 143
+        "y": 157
       },
       "id": 299,
       "panels": [],
@@ -7109,8 +7344,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7158,7 +7394,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 144
+        "y": 158
       },
       "id": 300,
       "options": {
@@ -7184,11 +7420,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "last_over_time(mtik_exporter_ipv6_neighbor_info{routerboard_name=\"$node\"}[1h])",
+          "expr": "sum by (address, dhcp_lease_type, dhcp_comment, dhcp_address, interface, mac_address, router, status) (last_over_time(mtik_exporter_ipv6_neighbor_info{routerboard_name=\"$node\"}[1h]))",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -7206,8 +7442,8 @@
               "Value": true,
               "__name__": true,
               "address": false,
-              "dhcp_address": true,
-              "dhcp_comment": true,
+              "dhcp_address": false,
+              "dhcp_comment": false,
               "dhcp_name": true,
               "group": true,
               "instance": true,
@@ -7231,7 +7467,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 152
+        "y": 166
       },
       "id": 141,
       "panels": [],
@@ -7241,7 +7477,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "description": "",
       "fieldConfig": {
@@ -7300,7 +7536,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 153
+        "y": 167
       },
       "id": 123,
       "maxPerRow": 2,
@@ -7327,7 +7563,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -7343,7 +7579,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -7365,7 +7601,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 188
+        "y": 216
       },
       "id": 228,
       "panels": [],
@@ -7375,7 +7611,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7437,7 +7673,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 189
+        "y": 217
       },
       "id": 277,
       "options": {
@@ -7457,7 +7693,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(mtik_exporter_interface_rx_byte_total{routerboard_name=\"$node\", type=\"wg\"}[$__rate_interval])*8",
@@ -7469,7 +7705,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(mtik_exporter_interface_tx_byte_total{routerboard_name=\"$node\", type=\"wg\"}[$__rate_interval])*-8",
@@ -7486,7 +7722,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7569,7 +7805,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 200
+        "y": 228
       },
       "id": 227,
       "interval": "10s",
@@ -7595,7 +7831,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -7611,7 +7847,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "-rate(mtik_exporter_wireguard_peer_tx_bytes_total{routerboard_name=\"$node\", interface=\"$wg_if\"})*8",
@@ -7627,8 +7863,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7715,7 +7952,7 @@
         "h": 13,
         "w": 24,
         "x": 0,
-        "y": 220
+        "y": 248
       },
       "id": 229,
       "options": {
@@ -7741,12 +7978,12 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_wireguard_peer_last_handshake{routerboard_name=\"$node\", current_endpoint_address=''} or mtik_exporter_wireguard_peer_last_handshake{routerboard_name=\"$node\"} > 500",
+          "expr": "sum by (interface, name) (mtik_exporter_wireguard_peer_last_handshake{routerboard_name=\"$node\", current_endpoint_address=''} or mtik_exporter_wireguard_peer_last_handshake{routerboard_name=\"$node\"} > 500)",
           "format": "table",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
@@ -7759,11 +7996,11 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "mtik_exporter_wireguard_peer_info{routerboard_name=\"$node\"}",
+          "expr": "sum by (interface, allowed_address, current_endpoint_address, name) (mtik_exporter_wireguard_peer_info{routerboard_name=\"$node\"})",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -7856,19 +8093,456 @@
       "type": "table"
     },
     {
+      "datasource": {
+        "default": true,
+        "type": "victoriametrics-datasource",
+        "uid": "${ds}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Last Seen"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Last Seen"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "green",
+                      "value": 300
+                    },
+                    {
+                      "color": "red",
+                      "value": 301
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 24,
+        "x": 0,
+        "y": 261
+      },
+      "id": 502,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Latency"
+          }
+        ]
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-datasource",
+            "uid": "${ds}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (zt_address, preferred_endpoint) (mtik_exporter_zerotier_peer_latency{routerboard_name=\"$node\", role=\"LEAF\"})",
+          "format": "table",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-datasource",
+            "uid": "${ds}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (name, zt_address, inactive, ip_address) (mtik_exporter_zerotier_controller_member_last_seen)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Zerotier Peers",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "zt_address",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time 1": true,
+              "Time 2": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "authorized": true,
+              "bonded": true,
+              "exported_instance": true,
+              "group 1": true,
+              "group 2": true,
+              "inactive": false,
+              "instance 1": true,
+              "instance 2": true,
+              "job 1": true,
+              "job 2": true,
+              "network": true,
+              "role": true,
+              "routerboard_address 1": true,
+              "routerboard_address 2": true,
+              "routerboard_name 1": true,
+              "routerboard_name 2": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time 1": 2,
+              "Time 2": 13,
+              "Value #A": 24,
+              "Value #B": 25,
+              "__name__ 1": 3,
+              "__name__ 2": 14,
+              "authorized": 15,
+              "bonded": 4,
+              "exported_instance": 5,
+              "group 1": 6,
+              "group 2": 16,
+              "inactive": 17,
+              "instance 1": 7,
+              "instance 2": 18,
+              "ip_address": 19,
+              "job 1": 8,
+              "job 2": 20,
+              "name": 0,
+              "network": 21,
+              "preferred_endpoint": 9,
+              "role": 10,
+              "routerboard_address 1": 11,
+              "routerboard_address 2": 22,
+              "routerboard_name 1": 12,
+              "routerboard_name 2": 23,
+              "zt_address": 1
+            },
+            "renameByName": {
+              "Value #A": "Latency",
+              "Value #B": "Last Seen"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "victoriametrics-datasource",
+        "uid": "${ds}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Last Seen"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Last Seen"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "green",
+                      "value": 300
+                    },
+                    {
+                      "color": "red",
+                      "value": 301
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 24,
+        "x": 0,
+        "y": 274
+      },
+      "id": 489,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Last Seen"
+          }
+        ]
+      },
+      "pluginVersion": "11.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-datasource",
+            "uid": "${ds}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (name, authorized, ip_address, zt_address) (mtik_exporter_zerotier_controller_member_last_seen{routerboard_name=\"$node\"})",
+          "format": "table",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Zerotier Members",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "Time 1": true,
+              "Time 2": true,
+              "Value #A": false,
+              "Value #B": true,
+              "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "authorized": false,
+              "comment 2": true,
+              "current_endpoint_address": false,
+              "current_endpoint_port": true,
+              "endpoint_address": true,
+              "endpoint_port": true,
+              "group": true,
+              "group 2": true,
+              "id": true,
+              "inactive": true,
+              "instance": true,
+              "instance 1": true,
+              "instance 2": true,
+              "interface": false,
+              "interface 1": true,
+              "interface 2": false,
+              "job": true,
+              "job 1": true,
+              "job 2": true,
+              "name 2": true,
+              "network": true,
+              "public_key": true,
+              "routerboard_address": true,
+              "routerboard_address 1": true,
+              "routerboard_address 2": true,
+              "routerboard_name": true,
+              "routerboard_name 1": true,
+              "routerboard_name 2": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time 1": 0,
+              "Time 2": 9,
+              "Value #A": 22,
+              "Value #B": 23,
+              "__name__ 1": 1,
+              "__name__ 2": 10,
+              "allowed_address": 11,
+              "current_endpoint_address": 12,
+              "current_endpoint_port": 13,
+              "endpoint_address": 21,
+              "endpoint_port": 14,
+              "group 1": 2,
+              "group 2": 15,
+              "instance 1": 3,
+              "instance 2": 16,
+              "interface 1": 4,
+              "interface 2": 5,
+              "job 1": 6,
+              "job 2": 17,
+              "name": 24,
+              "public_key": 18,
+              "routerboard_address 1": 7,
+              "routerboard_address 2": 19,
+              "routerboard_name 1": 8,
+              "routerboard_name 2": 20
+            },
+            "renameByName": {
+              "Value": "Last Seen",
+              "Value #A": "Last Handshake"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
       "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 233
+        "y": 287
       },
       "id": 109,
       "panels": [
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -7943,7 +8617,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 244
+            "y": 252
           },
           "id": 107,
           "options": {
@@ -7971,7 +8645,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_simple_bytes_download_total{routerboard_name=\"$node\"}[$__rate_interval])*8",
@@ -8003,7 +8677,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_simple_bytes_upload_total{routerboard_name=\"$node\"}[$__rate_interval])*8",
@@ -8036,7 +8710,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -8111,7 +8785,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 244
+            "y": 252
           },
           "id": 102,
           "options": {
@@ -8141,7 +8815,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_queue_simple_bytes_download_total{routerboard_name=\"$node\"}",
@@ -8173,7 +8847,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_queue_simple_bytes_upload_total{routerboard_name=\"$node\"}",
@@ -8206,7 +8880,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -8281,7 +8955,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 255
+            "y": 263
           },
           "id": 111,
           "options": {
@@ -8311,7 +8985,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_simple_queued_bytes_upload_total{routerboard_name=\"$node\"}[$__rate_interval])",
@@ -8343,7 +9017,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_simple_queued_bytes_upload_total{routerboard_name=\"$node\"}[$__rate_interval])",
@@ -8376,7 +9050,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -8451,7 +9125,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 255
+            "y": 263
           },
           "id": 112,
           "options": {
@@ -8481,7 +9155,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_simple_dropped_download_total{routerboard_name=\"$node\"}[$__rate_interval])",
@@ -8513,7 +9187,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_simple_dropped_upload_total{routerboard_name=\"$node\"}[$__rate_interval])",
@@ -8551,13 +9225,13 @@
       "collapsed": false,
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 234
+        "y": 288
       },
       "id": 80,
       "panels": [],
@@ -8565,7 +9239,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "refId": "A"
         }
@@ -8576,7 +9250,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -8614,7 +9288,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 235
+        "y": 289
       },
       "id": 321,
       "interval": "60s",
@@ -8645,7 +9319,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "sort_desc(increase(mtik_exporter_data_load_time_total{routerboard_name=\"$node\"}[$__interval]))",
@@ -8678,7 +9352,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -8716,7 +9390,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 235
+        "y": 289
       },
       "id": 357,
       "interval": "60s",
@@ -8747,7 +9421,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "sort_desc(time() - mtik_exporter_data_load_last_run{routerboard_name=\"$node\"})",
@@ -8780,7 +9454,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -8864,7 +9538,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 243
+        "y": 297
       },
       "id": 322,
       "interval": "10s",
@@ -8894,7 +9568,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "sort_desc(increase(mtik_exporter_data_load_time_total{routerboard_name=\"$node\"}[$__interval]))",
@@ -8927,7 +9601,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -9012,7 +9686,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 251
+        "y": 305
       },
       "id": 369,
       "interval": "10s",
@@ -9042,7 +9716,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "sum(increase(mtik_exporter_data_load_time_total{routerboard_name=\"$node\"}[$__interval]))",
@@ -9074,8 +9748,9 @@
     },
     {
       "datasource": {
+        "default": true,
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -9088,10 +9763,11 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 30,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -9159,7 +9835,153 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 259
+        "y": 313
+      },
+      "id": 453,
+      "interval": "10s",
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "application": {
+            "filter": "Network"
+          },
+          "datasource": {
+            "type": "victoriametrics-datasource",
+            "uid": "${ds}"
+          },
+          "editorMode": "code",
+          "expr": "sum(increase(mtik_exporter_data_load_time_total{instance=\"$instance\"}[$__interval]))",
+          "format": "time_series",
+          "functions": [],
+          "group": {
+            "filter": "Network"
+          },
+          "hide": false,
+          "host": {
+            "filter": "MikroTik Router"
+          },
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "item": {
+            "filter": "Incoming traffic on interface ether1-gateway"
+          },
+          "legendFormat": "__auto",
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "mtik_exporter Instance Data Load Time Total",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "victoriametrics-datasource",
+        "uid": "${ds}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsZero",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 321
       },
       "id": 405,
       "interval": "10s",
@@ -9189,7 +10011,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "min(time() - mtik_exporter_data_load_last_run{routerboard_name=\"$node\"})",
@@ -9222,7 +10044,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -9269,8 +10091,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -9286,7 +10107,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 267
+        "y": 329
       },
       "id": 334,
       "options": {
@@ -9315,7 +10136,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "scrape_duration_seconds{instance=\"$instance\"}",
@@ -9348,7 +10169,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -9395,8 +10216,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -9412,7 +10232,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 274
+        "y": 336
       },
       "id": 346,
       "options": {
@@ -9438,7 +10258,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "scrape_samples_post_metric_relabeling{instance=\"$instance\"}",
@@ -9455,7 +10275,7 @@
     {
       "datasource": {
         "type": "victoriametrics-datasource",
-        "uid": "bdkympr0s9la8f"
+        "uid": "${ds}"
       },
       "fieldConfig": {
         "defaults": {
@@ -9501,8 +10321,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -9539,7 +10358,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 281
+        "y": 343
       },
       "id": 381,
       "interval": "10s",
@@ -9569,7 +10388,7 @@
           },
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "rate(process_cpu_seconds_total{job=\"mikrotik_mktxp\", instance=\"$instance\"}[$__interval])",
@@ -9605,14 +10424,14 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 289
+        "y": 351
       },
       "id": 100,
       "panels": [
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -9687,7 +10506,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 283
+            "y": 291
           },
           "id": 101,
           "options": {
@@ -9714,7 +10533,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_queue_tree_rates_total{routerboard_name=\"$node\"}*8",
@@ -9747,7 +10566,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -9822,7 +10641,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 283
+            "y": 291
           },
           "id": 110,
           "options": {
@@ -9851,7 +10670,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "mtik_exporter_queue_tree_bytes_total{routerboard_name=\"$node\"}",
@@ -9884,7 +10703,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -9959,7 +10778,7 @@
             "h": 11,
             "w": 12,
             "x": 0,
-            "y": 294
+            "y": 302
           },
           "id": 106,
           "options": {
@@ -9988,7 +10807,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_tree_queued_bytes_total{routerboard_name=\"$node\"}[4m])",
@@ -10021,7 +10840,7 @@
         {
           "datasource": {
             "type": "victoriametrics-datasource",
-            "uid": "bdkympr0s9la8f"
+            "uid": "${ds}"
           },
           "description": "",
           "fieldConfig": {
@@ -10096,7 +10915,7 @@
             "h": 11,
             "w": 12,
             "x": 12,
-            "y": 294
+            "y": 302
           },
           "id": 105,
           "options": {
@@ -10125,7 +10944,7 @@
               },
               "datasource": {
                 "type": "victoriametrics-datasource",
-                "uid": "bdkympr0s9la8f"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "rate(mtik_exporter_queue_tree_dropped_total{routerboard_name=\"$node\"}[4m])",
@@ -10170,13 +10989,31 @@
     "list": [
       {
         "current": {
-          "selected": true,
-          "text": "Kauniskota-Main",
-          "value": "Kauniskota-Main"
+          "selected": false,
+          "text": "VM",
+          "value": "bdkympr0s9la8f"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "ds",
+        "options": [],
+        "query": "victoriametrics-datasource",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "JP-RB5009",
+          "value": "JP-RB5009"
         },
         "datasource": {
           "type": "victoriametrics-datasource",
-          "uid": "bdkympr0s9la8f"
+          "uid": "${ds}"
         },
         "definition": "label_values(mtik_exporter_system_identity_info,routerboard_name)",
         "hide": 0,
@@ -10211,7 +11048,7 @@
         },
         "datasource": {
           "type": "victoriametrics-datasource",
-          "uid": "bdkympr0s9la8f"
+          "uid": "${ds}"
         },
         "definition": "label_values(mtik_exporter_netwatch_icmp_rtt_avg{routerboard_name=\"$node\"},name)",
         "hide": 2,
@@ -10238,7 +11075,7 @@
         },
         "datasource": {
           "type": "victoriametrics-datasource",
-          "uid": "bdkympr0s9la8f"
+          "uid": "${ds}"
         },
         "definition": "label_values(mtik_exporter_wireguard_interfaces_info{routerboard_name=\"$node\"},name)",
         "hide": 2,
@@ -10269,7 +11106,7 @@
         },
         "datasource": {
           "type": "victoriametrics-datasource",
-          "uid": "bdkympr0s9la8f"
+          "uid": "${ds}"
         },
         "definition": "query_result(label_join(mtik_exporter_interface_rx_byte_total{routerboard_name = \"$node\", type != \"loopback\", type != \"wg\"}, \"desc\", \"  \", \"name\", \"comment\"))",
         "hide": 0,
@@ -10291,12 +11128,12 @@
       {
         "current": {
           "selected": false,
-          "text": "192.168.16.10:49090",
-          "value": "192.168.16.10:49090"
+          "text": "10.3.0.50:49090",
+          "value": "10.3.0.50:49090"
         },
         "datasource": {
           "type": "victoriametrics-datasource",
-          "uid": "bdkympr0s9la8f"
+          "uid": "${ds}"
         },
         "definition": "label_values(mtik_exporter_system_identity_info{routerboard_name=\"$node\"},instance)",
         "hide": 0,
@@ -10329,6 +11166,6 @@
   "timezone": "",
   "title": "Mikrotik Monitoring",
   "uid": "abc4ae8a-f097-482d-ad73-5bfcedc92ae3",
-  "version": 449,
+  "version": 483,
   "weekStart": ""
 }
