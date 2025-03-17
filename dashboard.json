@@ -5008,7 +5008,7 @@
     },
     {
       "datasource": {
-        "default": true,
+        "default": false,
         "type": "victoriametrics-datasource",
         "uid": "${ds}"
       },
@@ -5075,7 +5075,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (interface, mac_address, address, dynamic, status) (sort_by_label(mtik_exporter_arp_entry_info{routerboard_name=\"$node\", dhcp_lease_type!=\"static\"}, \"interface\"))",
+          "expr": "sum by (interface, mac_address, address, dynamic, status) (\n    sort_by_label(\n        mtik_exporter_arp_entry_info{routerboard_name=\"$node\", dhcp_lease_type!=\"static\"},\n        \"interface\"\n    )\n)",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -5129,7 +5129,7 @@
     },
     {
       "datasource": {
-        "default": true,
+        "default": false,
         "type": "victoriametrics-datasource",
         "uid": "${ds}"
       },
@@ -5194,7 +5194,7 @@
             "type": "victoriametrics-datasource",
             "uid": "${ds}"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
           "expr": "sort_by_label(mtik_exporter_bridge_host_info{routerboard_name=\"$node\", dhcp_lease_type!=\"static\"}, \"interface\")",
           "format": "table",
@@ -6300,7 +6300,12 @@
           "show": false
         },
         "showHeader": true,
-        "sortBy": []
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "master"
+          }
+        ]
       },
       "pluginVersion": "11.2.0",
       "targets": [
@@ -6494,7 +6499,7 @@
     },
     {
       "datasource": {
-        "default": true,
+        "default": false,
         "type": "victoriametrics-datasource",
         "uid": "${ds}"
       },
@@ -6610,7 +6615,7 @@
             "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "sum by (mac_address, interface, ssid, dhcp_address, dhcp_comment) (mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"})",
+          "expr": "sum by (mac_address, interface, ssid, active_address, comment) (\n    mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"} * on (mac_address) group_left(comment, active_address) mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\"} or on (mac_address) mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}\n)",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -6702,7 +6707,7 @@
               "__name__ 3": true,
               "__name__ 4": true,
               "__name__ 5": true,
-              "comment": true,
+              "comment": false,
               "dhcp_address 1": true,
               "dhcp_address 2": true,
               "dhcp_address 3": true,
@@ -6762,8 +6767,8 @@
               "Value #C": 9,
               "Value #D": 11,
               "Value #E": 12,
-              "dhcp_address": 14,
-              "dhcp_comment": 0,
+              "active_address": 14,
+              "comment": 0,
               "interface": 3,
               "mac_address": 1,
               "ssid": 4
@@ -6772,7 +6777,9 @@
               "Value #B": "Signal Strength",
               "Value #C": "RX Rate",
               "Value #D": "TX Rate",
-              "Value #E": "Uptime"
+              "Value #E": "Uptime",
+              "active_address": "IP",
+              "comment": ""
             }
           }
         }
@@ -7015,7 +7022,9 @@
           ],
           "displayMode": "table",
           "placement": "right",
-          "showLegend": true
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
         },
         "tooltip": {
           "maxHeight": 600,
@@ -7034,7 +7043,7 @@
             "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "mtik_exporter_wifi_clients_signal_strength{routerboard_name=\"$node\"}",
+          "expr": "label_replace(\n    label_replace(\n\n        mtik_exporter_wifi_clients_signal_strength{routerboard_name=\"$node\"} * on (mac_address) group_left(comment)\n            mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\"}\n\n        or on (mac_address)\n        mtik_exporter_wifi_clients_signal_strength{routerboard_name=\"$node\"},\n\n    \"display_name\", \"$1\", \"mac_address\", \"(.+)\"),\n\"display_name\", \"$1\", \"comment\", \"(.+)\")",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -7050,12 +7059,20 @@
           "item": {
             "filter": "Incoming traffic on interface ether1-gateway"
           },
-          "legendFormat": "{{mac_address}} | {{dhcp_comment}}",
+          "legendFormat": "{{ display_name }}",
           "mode": 0,
           "options": {
             "showDisabledItems": false
           },
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-datasource",
+            "uid": "${ds}"
+          },
+          "hide": false,
+          "refId": "B"
         }
       ],
       "title": "Wifi Clients Signal Strength",
@@ -7067,6 +7084,7 @@
         "type": "victoriametrics-datasource",
         "uid": "${ds}"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -7156,7 +7174,7 @@
             "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "rate(mtik_exporter_wifi_clients_rx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval])*8",
+          "expr": "label_replace(\n    label_replace(\n        rate(mtik_exporter_wifi_clients_rx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval]) * 8 *\n            on (mac_address) group_left(comment)\n            mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\"}\n        \n        or on (mac_address)\n        rate(mtik_exporter_wifi_clients_rx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval]) * 8, \n\n    \"display_name\", \"$1\", \"mac_address\", \"(.+)\"),\n\"display_name\", \"$1\", \"comment\", \"(.+)\")",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -7172,7 +7190,7 @@
           "item": {
             "filter": "Incoming traffic on interface ether1-gateway"
           },
-          "legendFormat": "In | {{ mac_address }} | {{ dhcp_comment }}",
+          "legendFormat": "In | {{display_name}}",
           "mode": 0,
           "options": {
             "showDisabledItems": false
@@ -7188,7 +7206,7 @@
             "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "-rate(mtik_exporter_wifi_clients_tx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval])*8",
+          "expr": "label_replace(\n    label_replace(\n        -rate(mtik_exporter_wifi_clients_tx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval]) * 8 *\n            on (mac_address) group_left(comment)\n            mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\"}\n        \n        or on (mac_address)\n        -rate(mtik_exporter_wifi_clients_tx_bytes_total{routerboard_name=\"$node\"}[$__rate_interval]) * 8, \n\n    \"display_name\", \"$1\", \"mac_address\", \"(.+)\"),\n\"display_name\", \"$1\", \"comment\", \"(.+)\")",
           "format": "time_series",
           "functions": [],
           "group": {
@@ -7203,7 +7221,7 @@
           "item": {
             "filter": "Outgoing traffic on interface ether1-gateway"
           },
-          "legendFormat": "Out | {{ mac_address }} | {{ dhcp_comment }}",
+          "legendFormat": "Out | {{ display_name }}",
           "mode": 0,
           "options": {
             "showDisabledItems": false
@@ -7217,6 +7235,7 @@
     },
     {
       "datasource": {
+        "default": false,
         "type": "victoriametrics-datasource",
         "uid": "${ds}"
       },
@@ -7306,7 +7325,7 @@
             "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "sum by (interface,ssid)(rate(mtik_exporter_wifi_clients_rx_bytes_total{routerboard_name=\"$node\"} * on (mac_address) group_left(interface, ssid) mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}[$__rate_interval]))*8",
+          "expr": "sum by (interface,ssid) (\n    rate(mtik_exporter_wifi_clients_rx_bytes_total{routerboard_name=\"$node\"} *\n        on (mac_address) group_left(interface, ssid)\n        mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}[$__rate_interval]\n    )\n)*8",
           "instant": false,
           "legendFormat": "In | {{interface}} {{ssid}}",
           "range": true,
@@ -7318,7 +7337,7 @@
             "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "-sum by (interface,ssid)(rate(mtik_exporter_wifi_clients_tx_bytes_total{routerboard_name=\"$node\"} * on (mac_address) group_left(interface, ssid) mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}[$__rate_interval]))*8",
+          "expr": "-sum by (interface,ssid) (\n    rate(mtik_exporter_wifi_clients_tx_bytes_total{routerboard_name=\"$node\"} *\n        on (mac_address) group_left(interface, ssid)\n        mtik_exporter_wifi_clients_devices_info{routerboard_name=\"$node\"}[$__rate_interval]\n    )\n)*8",
           "hide": false,
           "instant": false,
           "legendFormat": "Out | {{interface}} {{ssid}}",
@@ -7344,7 +7363,7 @@
     },
     {
       "datasource": {
-        "default": true,
+        "default": false,
         "type": "victoriametrics-datasource",
         "uid": "${ds}"
       },
@@ -7424,7 +7443,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (address, dhcp_lease_type, dhcp_comment, dhcp_address, interface, mac_address, router, status) (last_over_time(mtik_exporter_ipv6_neighbor_info{routerboard_name=\"$node\"}[1h]))",
+          "expr": "sum by (address, comment, active_address, address, interface, mac_address, mac_vendor, router, status) (\n    last_over_time(\n        mtik_exporter_ipv6_neighbor_info{routerboard_name=\"$node\"}[1h]\n    ) * on (mac_address) group_left(comment, active_address)\n        mtik_exporter_dhcp_lease_info{routerboard_name=\"$node\"}\n\n    or on (mac_address)\n    last_over_time(\n        mtik_exporter_ipv6_neighbor_info{routerboard_name=\"$node\"}[1h]\n    )\n)",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -7454,8 +7473,20 @@
               "routerboard_name": true
             },
             "includeByName": {},
-            "indexByName": {},
-            "renameByName": {}
+            "indexByName": {
+              "Time": 0,
+              "Value": 7,
+              "active_address": 3,
+              "address": 1,
+              "comment": 2,
+              "interface": 4,
+              "mac_address": 5,
+              "status": 6
+            },
+            "renameByName": {
+              "active_address": "IPv4",
+              "address": "IPv6"
+            }
           }
         }
       ],
@@ -9944,7 +9975,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -10091,7 +10123,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -11159,13 +11192,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Mikrotik Monitoring",
   "uid": "abc4ae8a-f097-482d-ad73-5bfcedc92ae3",
-  "version": 483,
+  "version": 500,
   "weekStart": ""
 }
